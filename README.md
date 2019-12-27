@@ -148,9 +148,11 @@
 ## 2. 将数组中相邻项按照一定条件合并
 
 ## 3. 实现一个 EatMan 
-> EatMan('Hank')  => Hi! This is Hank
-> EatMan('Hank').eat('dinner')  => Hi! This is Hank  Eat dinner~
-> EatMan('Hank').eat('dinner').eatFirst('lunch')  => Eat lunch~ Hi! This is Hank  Eat dinner~
+```javascript
+ EatMan('Hank')  => Hi! This is Hank
+ EatMan('Hank').eat('dinner')  => Hi! This is Hank  Eat dinner~
+ EatMan('Hank').eat('dinner').eatFirst('lunch')  => Eat lunch~ Hi! This is Hank  Eat dinner~
+``` 
 
 ## 4. event loop
 
