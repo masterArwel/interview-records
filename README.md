@@ -105,63 +105,63 @@
 
 ***支付宝***
 
-## 1. 两栏布局
+### 1. 两栏布局
 
-## 2. 浏览器加载阻塞
+### 2. 浏览器加载阻塞
 
-## 3. call apply bind
+### 3. call apply bind
 
-## 4. 浏览器缓存策略
+### 4. 浏览器缓存策略
 
-## 5. cdn 缓存
+### 5. cdn 缓存
 
-## 6. 列表滚动加载多次后导致页面卡顿的解决方案
+### 6. 列表滚动加载多次后导致页面卡顿的解决方案
 
-## 7. js 事件机制  事件委托
+### 7. js 事件机制  事件委托
 
-## 8. 浏览器event loop
+### 8. 浏览器event loop
 
-## 9. var let const 区别  let 先使用后定义为什么会报错
+### 9. var let const 区别  let 先使用后定义为什么会报错
 
-## 10. 箭头函数和普通函数的区别 箭头函数内部可以使用 call apply 进行 this 指向的改变吗
+### 10. 箭头函数和普通函数的区别 箭头函数内部可以使用 call apply 进行 this 指向的改变吗
 
-## 11. 有哪些种类的 js 需要放在html 的 head 里面
+### 11. 有哪些种类的 js 需要放在html 的 head 里面
 
-## 12. css 文件的 prefetch 和 preload 的作用
+### 12. css 文件的 prefetch 和 preload 的作用
 
-## 13. 首页白屏可能出现的原因以及相对应的解决方案
+### 13. 首页白屏可能出现的原因以及相对应的解决方案
 
-## 14. rem 的实现原理
+### 14. rem 的实现原理
 
-## 15. Vue 响应式原理  追问 computed 里面的结果怎么实现的响应式 
+### 15. Vue 响应式原理  追问 computed 里面的结果怎么实现的响应式 
 
-## 16. vuex 使用场景
+### 16. vuex 使用场景
 
-## 17. xss 攻击如何防范, 前端如何判断页面被劫持
+### 17. xss 攻击如何防范, 前端如何判断页面被劫持
 
-## 18. 最近做的最有成就感的项目, 以及项目中比较困难的逻辑实现
+### 18. 最近做的最有成就感的项目, 以及项目中比较困难的逻辑实现
 
 ***CBU***
 
-## 1. 给定一个数组 arr, 求出数组中第 k 大和第 m 大之和 需考虑数量
+### 1. 给定一个数组 arr, 求出数组中第 k 大和第 m 大之和 需考虑数量
 
-## 2. 将数组中相邻项按照一定条件合并
+### 2. 将数组中相邻项按照一定条件合并
 
-## 3. 实现一个 EatMan 
+### 3. 实现一个 EatMan 
 ```javascript
  EatMan('Hank')  => Hi! This is Hank
  EatMan('Hank').eat('dinner')  => Hi! This is Hank  Eat dinner~
  EatMan('Hank').eat('dinner').eatFirst('lunch')  => Eat lunch~ Hi! This is Hank  Eat dinner~
 ``` 
 
-## 4. event loop
+### 4. event loop
 
-## 5. promise
+### 5. promise
 
-## 6. 水平垂直居中
+### 6. 水平垂直居中
 
-## 7. flex 布局
+### 7. flex 布局
 
-## 8. webpack 原理
+### 8. webpack 原理
 
-## 9. loader 和 plugin
+### 9. loader 和 plugin
