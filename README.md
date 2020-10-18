@@ -90,7 +90,16 @@
 >
 > ![原理图](/images/mvvm.png)
 ### 5. vue 组件通信的方式
-> 待完善
+>
+> 1. props 和 $emit。使用场景最广泛，这里不做说明
+> 2. $parent 和 $children。通过这两个api 可以让父组件访问到子组件的实例列表，也可以让子组件访问到父组件的实例，从而进行相互通信。使用这种通信方式的时候，不建议父组件与孙子或更深层次的组件进行通信
+> 3. $attrs / $listeners。 (vue3.x 已废弃)
+> 4. provide / inject。在生命周期范围内， 父组件定义provide 后，可被子组件，子组件的子组件... 无限延展都可通过inject 来获取。
+> 5. ref
+> 6. EventBus
+> 7. Vuex
+> 8. localStorage / sessionStorage
+
 ### 6. 预检请求触发的条件
 > 待完善
 ### 7. css 伪类 (:before, :after) 是所有元素都可以使用吗
