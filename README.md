@@ -37,11 +37,58 @@
 > 服务器存储着文件的Etag字段，可以在与每次客户端传送If-no-match的字段进行比较，如果相等，则表示未修改，响应304；反之，则表示已修改，响应200状态码，返回数据。
 
 ### 2. 数据传递中的跨域问题
-> 待完善
+> 首先跨域 就是我们常说的违反浏览器同源策略的资源请求。
+>
+> ***什么是同源策略***
+>
+> 同源策略/SOP（Same origin policy）是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指"协议+域名+端口"三者相同，即便两个不同的域名指向同一个ip地址，也非同源。
+>
+> **解决跨域的一些方案**
+>
+> - 通过jsonp
+> 
+> 原理：通过动态创建script，再请求一个带参网址实现跨域通信
+> 
+> 缺点：只能支持 get 请求的形式
+> - document.domain + iframe
+> 
+> 原理：通过js强制设置document.domain为基础主域
+>
+> 缺点：1. 仅限主域相同，子域不同的跨域应用场景
+> - location.hash + iframe
+>
+> 原理：不同域之前的相互通信，通过中间页来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。
+> - window.name + iframe
+> 
+> 原理：通过iframe的src属性由外域转向本地域，跨域数据由iframe的window.name从外域传递到本地域。
+> - postMessage
+> 
+> postMessage是HTML5 XMLHttpRequest Level 2中的API, 使用方法在[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage) 上有详细介绍
+> - CORS
+> 
+> CORS 跨域有两种方式， 一种是需要cookie的一种是不需要的。不需要cookie 的方式，仅仅服务端的同学设置Access-Control-Allow-Origin即可，前端同学不需任何设置；带有cookie时，需要前端同学设置 ```xhr.withCredentials=true```
+> - nginx代理
+> 
+> 通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录的问题
+> - nodejs中间件代理
+> 
+> node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发。
+> - WebSocket协议
+> 
+> [WebSocket protocol](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket) 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现
+
 ### 3. jsBridge 通信原理
 > 待完善
 ### 4. 实现 MVVM 的思路
-> 待完善
+> 这个问题一般在考察框架原理的时候经常被问到。回答一般以 发布-订阅者模式和脏值检查模式为切入点，详细聊一下 **1.修改View层，Model对应数据发生变化。2.Model数据变化，不需要查找DOM，直接更新View。** 的完整流程。
+>
+> 思路如下：
+> 1. 实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者
+> 2. 实现一个指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数
+> 3. 实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图
+> 4. 实现入口函数，整合以上三者。
+>
+> ![原理图](/images/mvvm.png)
 ### 5. vue 组件通信的方式
 > 待完善
 ### 6. 预检请求触发的条件
