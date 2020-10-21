@@ -93,7 +93,7 @@
 >
 > 1. props 和 $emit。使用场景最广泛，这里不做说明
 > 2. $parent 和 $children。通过这两个api 可以让父组件访问到子组件的实例列表，也可以让子组件访问到父组件的实例，从而进行相互通信。使用这种通信方式的时候，不建议父组件与孙子或更深层次的组件进行通信
-> 3. $attrs / $listeners。 (vue3.x 已废弃)
+> 3. $attrs / $listeners。 ($listeners 在 vue3.x 已废弃)
 > 4. provide / inject。在生命周期范围内， 父组件定义provide 后，可被子组件，子组件的子组件... 无限延展都可通过inject 来获取。
 > 5. ref
 > 6. EventBus
@@ -101,18 +101,23 @@
 > 8. localStorage / sessionStorage
 
 ### 6. 预检请求触发的条件
-> 待完善
+> OPTIONS请求即预检请求，可用于检测服务器允许的http方法。当发起跨域请求时，由于安全原因，触发一定条件时浏览器会在正式请求之前自动先发起OPTIONS请求，服务器若接受该跨域请求，浏览器才继续发起正式请求，以下三种情况下会触发预检请求
+> 
+> 1. 使用 PUT/DELETE/CONNECT/OPTIONS/TRACE/PATCH 中的一种请求方法
+> 2. 请求头设置  除了 Accept/Accept-Language/Content-Language/Content-Type/DPR/Downlink/Save-Data/Viewport-Width/Width 这些字段之外的字段
+> 3. Content-Type 的值不属于 application/x-www-form-urlencoded、multipart/form-data、text/plain
 ### 7. css 伪类 (:before, :after) 是所有元素都可以使用吗
 > 待完善
 
 ### 1. 给定一个数组, length 为 n 随机取, 尽可能的平均分为 m 个小数组, 最后整合成为一个二维数组.
 > 待完善
 ### 2. 取链接的所有参数的 api 
-> 待完善
+> window.location.search:  返回以 ? 开头的参数字符串
 ### 3. 前端可以不可以操作cookie
-> 待完善
-### 4. 详细说一下 vue 的实现原理
-> 待完善
+> 可以操作
+> 1. 写入cookie：document.cookie = ‘key=value；expires=过期时间戳’；
+> 2. 读取cookie：console.log(document.cookie);
+> 3. 删除cookie：document.cookie = ‘key=value;expires=当前时间戳+1’；
 ### 5. 关于组件设计有什么看法
 > 待完善
 ### 6. 埋点监控相关
@@ -120,25 +125,31 @@
 ### 7. 前端微服务? 微前端?
 > 待完善
 ### 8. 性能优化
-> 待完善
+> ![性能优化](/images/optimize.png)
 
 
 ### 1. html5 有哪些新的标签
-> 待完善
+> canvas header footer session ...
 ### 2. 平常使用 canvas 是用来实现什么功能的
-> 待完善
+> 对于C 端来说 一般情况下都是用来画图， 也有有一些小游戏使用
 ### 3. flex 布局
 > 待完善
 ### 4. css3 的动画
 > 待完善
 ### 5. position 的值都有哪些, 都什么作用
-> 待完善
+> 1. relative: 生成相对定位的元素，相对于其正常位置进行定位
+> 2. absolute: 生成绝对定bai位的元素，相对于 static 定位以外的第一个父元素进行定位
+> 3. fixed: 生成绝对定位的元素，相对于浏览器窗口进行定位
+> 4. static: 默认值。没有定位，元素出现在正常的流中
+> 5. sticky: 元素根据正常文档流进行定位
 ### 6. vuex
 > 待完善
-### 7. vue 组件通信
-> 待完善
 ### 8. vue-router 的生命周期
-> 待完善
+> 两种情况
+> 1. 全局路由钩子：2个 (beforeEach、afterEach)
+>
+> 2. 组件路由钩子：3个 (beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave)
+
 
 ### 1. vue 的生命周期, 以及作用
 > 待完善
@@ -146,17 +157,12 @@
 > 待完善
 ### 3. new Vue() 后都做了什么
 > 待完善
-### 4. diff 算法
-> 待完善
 ### 5. 为什么 会有 computed 和 methods 区别在哪 为什么用 computed 不用 methods
 > 待完善
 ### 6. computed 需要传参 怎么办
 > 待完善
 
-
 ### 1. loader 和 plugin 的执行顺序
-> 待完善
-### 2. vue 的响应式原理
 > 待完善
 ### 4. vue diff 算法有哪些策略
 > 待完善
@@ -172,25 +178,17 @@
 > 待完善
 ### 10. obj.call().call().call() 结果
 > 待完善
-### 11. 浏览器的  event loop
-> 待完善
-### 12. 最近做的一个项目, 在里面承担什么样的职责
-> 待完善
 
 
 ### 1. 两栏布局
 > 待完善
 ### 2. 浏览器加载阻塞
 > 待完善
-### 3. call apply bind
-> 待完善
 ### 5. cdn 缓存
 > 待完善
 ### 6. 列表滚动加载多次后导致页面卡顿的解决方案
 > 待完善
 ### 7. js 事件机制  事件委托
-> 待完善
-### 8. 浏览器event loop
 > 待完善
 ### 9. var let const 区别  let 先使用后定义为什么会报错
 > 待完善
@@ -209,8 +207,6 @@
 ### 16. vuex 使用场景
 > 待完善
 ### 17. xss 攻击如何防范, 前端如何判断页面被劫持
-> 待完善
-### 18. 最近做的最有成就感的项目, 以及项目中比较困难的逻辑实现
 > 待完善
 
 ### 1. 给定一个数组 arr, 求出数组中第 k 大和第 m 大之和 需考虑数量
@@ -236,8 +232,6 @@
 > 2. margin
 > 3. position + transform
 > 4. text-align + line-height
-### 7. flex 布局
-> 待完善
 ### 8. webpack 原理
 > 待完善
 ### 9. loader 和 plugin
