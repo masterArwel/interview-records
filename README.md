@@ -109,111 +109,123 @@
 ### 7. css 伪类 (:before, :after) 是所有元素都可以使用吗
 > 待完善
 
-### 1. 给定一个数组, length 为 n 随机取, 尽可能的平均分为 m 个小数组, 最后整合成为一个二维数组.
+### 9. 给定一个数组, length 为 n 随机取, 尽可能的平均分为 m 个小数组, 最后整合成为一个二维数组.
 > 待完善
-### 2. 取链接的所有参数的 api 
+### 10. 取链接的所有参数的 api 
 > window.location.search:  返回以 ? 开头的参数字符串
-### 3. 前端可以不可以操作cookie
+### 11. 前端可以不可以操作cookie
 > 可以操作
 > 1. 写入cookie：document.cookie = ‘key=value；expires=过期时间戳’；
 > 2. 读取cookie：console.log(document.cookie);
 > 3. 删除cookie：document.cookie = ‘key=value;expires=当前时间戳+1’；
-### 5. 关于组件设计有什么看法
+### 12. 关于组件设计有什么看法
 > 待完善
-### 6. 埋点监控相关
+### 13. 埋点监控相关
 > 待完善
-### 7. 前端微服务? 微前端?
+### 14. 前端微服务? 微前端?
 > 待完善
-### 8. 性能优化
+### 15. 性能优化
 > ![性能优化](/images/optimize.png)
 
 
-### 1. html5 有哪些新的标签
+### 16. html5 有哪些新的标签
 > canvas header footer session ...
-### 2. 平常使用 canvas 是用来实现什么功能的
+### 17. 平常使用 canvas 是用来实现什么功能的
 > 对于C 端来说 一般情况下都是用来画图， 也有有一些小游戏使用
-### 3. flex 布局
+### 18. flex 布局
 > 待完善
-### 4. css3 的动画
+### 19. css3 的动画
 > 待完善
-### 5. position 的值都有哪些, 都什么作用
+### 20. position 的值都有哪些, 都什么作用
 > 1. relative: 生成相对定位的元素，相对于其正常位置进行定位
 > 2. absolute: 生成绝对定bai位的元素，相对于 static 定位以外的第一个父元素进行定位
 > 3. fixed: 生成绝对定位的元素，相对于浏览器窗口进行定位
 > 4. static: 默认值。没有定位，元素出现在正常的流中
 > 5. sticky: 元素根据正常文档流进行定位
-### 6. vuex
+### 21. vuex
 > 待完善
-### 8. vue-router 的生命周期
+### 22. vue-router 的生命周期
 > 两种情况
 > 1. 全局路由钩子：2个 (beforeEach、afterEach)
 >
 > 2. 组件路由钩子：3个 (beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave)
 
 
-### 1. vue 的生命周期, 以及作用
+### 23. vue 的生命周期, 以及作用
+> 这里贴一张官网的地址 自行查看吧
+> [Vue声明周期](https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
+### 25. new Vue() 后都做了什么
+> 阅读源码位置 src/core/instance/init.js
+>
+> Vue 初始化主要就干了几件事情，合并配置，初始化生命周期，初始化事件中心，初始化渲染，初始化 data、props、computed、watcher 等等，最后初始化完成检测到如果有 el 属性，则调用 vm.$mount 方法挂载 vm，挂载的目标就是把模板渲染成最终的 DOM；此过程我们重点关注initState以及 最后执行的mount。
+### 27. computed 需要传参 怎么办
+> 利用闭包的方式：
+>```javascript 
+> computed: {
+>   total(price){
+>     return (price) => {
+>       this.num * price
+>     }
+>   }
+> }
+>```
+
+### 28. loader 和 plugin 的执行顺序
 > 待完善
-### 2. 详细介绍下 vue 的执行过程
+### 29. vue diff 算法有哪些策略
+> 
+### 30. vue 路由的实现方式, 分别使用哪些 API
+> Vue路由有两种实现方式
+> 1. hash 模式
+> 
+> 表现为在页面链接上会有 ```#``` 符号，路由改变页面更新是使用了 ```hashChange``` 事件, ```#``` 后面的内容改变不会刷新页面
+>
+> 2. history 模式
+> 主要用到的api 是 pushState、replaceState 进行页面更新
+### 31. history 模式下 会出现 404 是什么原因导致的
+> 单页应用通常只有一个浏览器可以访问的index.html。但是如果使用history模式，用户直接访问或者刷新非index.html时，web服务器会绕过index.html，会去当前刷新的位置找相应的页面，这样就会导致404
+### 32. webpack 2 或者 3 跟 4 有哪些不同
 > 待完善
-### 3. new Vue() 后都做了什么
+### 33. call apply bind 有什么区别
+> 首先， 三种方式都是用来改变 this 的指向的，call 和apply 的原理是一样的，区别就是传参的不同， call 方法接收的参数为 （target, ...args）apply 是（target, [arg1,arg2,...]）;bind 方法的实现原理是基于call 返回了一个函数
+### 34. obj.bind().bind().bind() 结果
+> 只有第一个bind 生效
+### 35. obj.call().call().call() 结果
+> 最后一个生效
+
+
+### 36. 两栏布局
 > 待完善
-### 5. 为什么 会有 computed 和 methods 区别在哪 为什么用 computed 不用 methods
+### 37. 浏览器加载阻塞
 > 待完善
-### 6. computed 需要传参 怎么办
+### 38. cdn 缓存
+> 待完善
+### 39. 列表滚动加载多次后导致页面卡顿的解决方案
+> 待完善
+### 40. js 事件机制  事件委托
+> 待完善
+### 41. var let const 区别  let 先使用后定义为什么会报错
+> 待完善
+### 42. 箭头函数和普通函数的区别 箭头函数内部可以使用 call apply 进行 this 指向的改变吗
+> 待完善
+### 43. 有哪些种类的 js 需要放在html 的 head 里面
+> 待完善
+### 44. css 文件的 prefetch 和 preload 的作用
+> 待完善
+### 45. 首页白屏可能出现的原因以及相对应的解决方案
+> 待完善
+### 46. rem 的实现原理
+> 待完善
+### 47. Vue 响应式原理  追问 computed 里面的结果怎么实现的响应式 
+> 待完善
+### 48. xss 攻击如何防范, 前端如何判断页面被劫持
 > 待完善
 
-### 1. loader 和 plugin 的执行顺序
+### 49. 给定一个数组 arr, 求出数组中第 k 大和第 m 大之和 需考虑数量
 > 待完善
-### 4. vue diff 算法有哪些策略
-> 待完善
-### 5. vue 路由的实现方式, 分别使用哪些 API
-> 待完善
-### 6. history 模式下 会出现 404 是什么原因导致的
-> 待完善
-### 7. webpack 2 或者 3 跟 4 有哪些不同
-> 待完善
-### 8. call apply bind 有什么区别
-> 待完善
-### 9. obj.bind().bind().bind() 结果
-> 待完善
-### 10. obj.call().call().call() 结果
-> 待完善
+### 50. 将数组中相邻项按照一定条件合并
 
-
-### 1. 两栏布局
-> 待完善
-### 2. 浏览器加载阻塞
-> 待完善
-### 5. cdn 缓存
-> 待完善
-### 6. 列表滚动加载多次后导致页面卡顿的解决方案
-> 待完善
-### 7. js 事件机制  事件委托
-> 待完善
-### 9. var let const 区别  let 先使用后定义为什么会报错
-> 待完善
-### 10. 箭头函数和普通函数的区别 箭头函数内部可以使用 call apply 进行 this 指向的改变吗
-> 待完善
-### 11. 有哪些种类的 js 需要放在html 的 head 里面
-> 待完善
-### 12. css 文件的 prefetch 和 preload 的作用
-> 待完善
-### 13. 首页白屏可能出现的原因以及相对应的解决方案
-> 待完善
-### 14. rem 的实现原理
-> 待完善
-### 15. Vue 响应式原理  追问 computed 里面的结果怎么实现的响应式 
-> 待完善
-### 16. vuex 使用场景
-> 待完善
-### 17. xss 攻击如何防范, 前端如何判断页面被劫持
-> 待完善
-
-### 1. 给定一个数组 arr, 求出数组中第 k 大和第 m 大之和 需考虑数量
-> 待完善
-### 2. 将数组中相邻项按照一定条件合并
-> 待完善
-### 3. 实现一个 EatMan 
+### 51. 实现一个 EatMan 
 ```javascript
  EatMan('Hank')  => Hi! This is Hank
  EatMan('Hank').eat('dinner')  => Hi! This is Hank  Eat dinner~
@@ -221,29 +233,98 @@
 ``` 
 > 待完善
 
-### 4. event loop
+### 52. event loop
 > 浏览器: 宏任务 (setTimeout, setInterval 之类), 微任务(promise 之类), 宏任务 -> 微任务 -> 宏任务 -> 微任务
 >
 > node: timer -> pending -> idea -> poll -> check -> close; 顺序执行 超出或者一定时间到达下一个阶段
-### 5. promise
+### 53. promise
 > 待完善
-### 6. 水平垂直居中
+### 54. 水平垂直居中
 > 1. flex
 > 2. margin
 > 3. position + transform
 > 4. text-align + line-height
-### 8. webpack 原理
+### 55. webpack 原理
 > 待完善
-### 9. loader 和 plugin
-> 待完善
+### 56. loader 和 plugin
+> loader: 主要是对文件的转换 比如 .less => .css
+>
+> plugin: 主要是在webpack 打包过程中每个阶段暴露出的回调补充处理方式
 
-### 1. 实现一个一位数组转化为树形结构
+### 57. 实现一个一位数组转化为树形结构
+> ```javascript
+>function toTree(data) {
+>   let result = []
+>   if(!Array.isArray(data)) {
+>      return result
+>   }
+>    data.forEach(item => {
+>       delete item.children;
+>     });
+>     let map = {};
+>     data.forEach(item => {
+>        map[item.id] = item;
+>      });
+ >     data.forEach(item => {
+>         let parent = map[item.pid];
+>         if(parent) {
+>            (parent.children || (parent.children = [])).push(item);
+>          } else {
+>            result.push(item);
+>           }
+>       });
+>      return result;
+> }
+>```
+### 58. promise 入参一个 promise 返回最后一个 promise 的执行结果
 > 待完善
-### 2. promise 入参一个 promise 返回最后一个 promise 的执行结果
-> 待完善
-### 3. http 常见 code 
+### 59. http 常见 code 
 > 203: 
 > 
 > 301: 永久重定向; 302: 临时重定向; 304: 使用缓存
 > 
 > 401: 无权限; 403: 禁止访问
+
+### 60. 实现深拷贝
+> 深拷贝的方式有很多。这里实现以下最容易理解的一种，就是利用递归
+>
+> ```javascript
+> // 定义一个深拷贝函数  接收目标target参数
+> function deepClone(target) {
+>     // 定义一个变量
+>     let result;
+>    // 如果当前需要深拷贝的是一个对象的话
+>    if (typeof target === 'object') {
+>    // 如果是一个数组的话
+>        if (Array.isArray(target)) {
+>            result = []; // 将result赋值为一个数组，并且执行遍历
+>            for (let i in target) {
+>                // 递归克隆数组中的每一项
+>                result.push(deepClone(target[i]))
+>            }
+>         // 判断如果当前的值是null的话；直接赋值为null
+>        } else if(target===null) {
+>            result = null;
+>         // 判断如果当前的值是一个RegExp对象的话，直接赋值    
+>        } else if(target.constructor===RegExp){
+>            result = target;
+>        }else {
+>         // 否则是普通对象，直接for in循环，递归赋值对象的所有值
+>            result = {};
+>            for (let i in target) {
+>                result[i] = deepClone(target[i]);
+>            }
+>        }
+>     // 如果不是对象的话，就是基本数据类型，那么直接赋值
+>    } else {
+>        result = target;
+>    }
+>     // 返回最终结果
+>    return result;
+>}
+> ```
+
+61.  页面主要内容也是canvas 由于数据量大  准备一个 canvas的loading， 主内容渲染时 会导致loading canvas 卡死， 为什么 怎么解决
+
+62. 实现灰度部署的原理
+
